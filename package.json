@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "homepage": "https://github.com/hgezim/gatsby-remark-link-unfurl",
-  "repository": {"https://github.com/hgezim/gatsby-remark-link-unfurl"},
+  "repository": "https://github.com/hgezim/gatsby-remark-link-unfurl",
   "scripts": {
     "prepublish": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
