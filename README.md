@@ -33,7 +33,7 @@ Side note: I just discovered that unfurl is not a made up word:
 
 Add `gatsby-remark-link-unfurl` to `gatsbyRemarkPlugins` in `gatsby-config.js`:
 
-**Important**: `processedUrlsFile` is the file that will store previously processed urls. This file must exists and have `{}` as the content.
+**Important**: `processedUrlsFile` is the JSON file that will store previously processed urls. This file will be created if it doesn't exist. If it exists, it should be a valid JSON file. You should commit this to your repository.
 
 ```js
 // In your gatsby-config.js
