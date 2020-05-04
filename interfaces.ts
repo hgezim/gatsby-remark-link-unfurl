@@ -1,4 +1,4 @@
-export interface IOembed {
+export interface MetadataInterface {
   title?: string
   description?: string
   url: string

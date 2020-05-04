@@ -1,7 +1,7 @@
-import { IOembed } from './interfaces'
+import { MetadataInterface } from './interfaces'
 import { Node } from 'unist'
 import * as mustache from 'mustache'
-export const tranformsLinkNodeToOembedNode = (node: Node, card: IOembed) => {
+export const tranformsLinkNodeToUnfurledNode = (node: Node, card: MetadataInterface) => {
   node.type = 'html'
   const template = `<a class='gatsby-remark-link-unfurl__container' href='{{card.url}}' target='_blank' title='{{card.title}}'>
     <div class='gatsby-remark-link-unfurl__media' style='background-image: url({{card.image.url}}'></div>

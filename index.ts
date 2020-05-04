@@ -1,10 +1,10 @@
 import { unfurl } from 'unfurl.js'
 const fs = require('fs')
 const path = require('path')
-import { selectPossibleOembedLinkNodes } from './selectPossibleOembedLinkNodes'
+import { selectPossibleLinkNodes } from './selectPossibleLinkNodes'
 import logResults from './logResults.js'
-import { tranformsLinkNodeToOembedNode } from './transformLinkToOembedNode'
-import { IOembed } from './interfaces'
+import { tranformsLinkNodeToUnfurledNode } from './transformLinkToUnfurledNode'
+import { MetadataInterface } from './interfaces'
 import { Node } from 'unist'
 
 export default async (
@@ -29,7 +29,7 @@ export default async (
       fs.writeFileSync(options.processedUrlsFile, '{}')
     }
 
-    const nodes = selectPossibleOembedLinkNodes(markdownAST)
+    const nodes = selectPossibleLinkNodes(markdownAST)
 
     if (nodes.length > 0) {
       const results = await Promise.all(
@@ -42,7 +42,7 @@ export default async (
       logResults(results, markdownNode, reporter)
     }
   } catch (error) {
-    reporter.error(`gatsby-remark-oembed: Error processing links`, error)
+    reporter.error(`gatsby-remark-link-unfurl: Error processing links`, error)
   }
 }
 
@@ -50,7 +50,7 @@ export default async (
 const processNode = async (
   node: any,
   options: any,
-  processedUrl: { [key: string]: IOembed }
+  processedUrl: { [key: string]: MetadataInterface }
 ): Promise<Node> => {
   try {
     const metaData = await unfurl(node.url)
@@ -78,11 +78,10 @@ const processNode = async (
           metaData.open_graph?.site_name ||
           metaData.twitter_card?.site ||
           undefined,
-        // iframe
       }
     }
 
-    return tranformsLinkNodeToOembedNode(node, processedUrl[node.url])
+    return tranformsLinkNodeToUnfurledNode(node, processedUrl[node.url])
   } catch (error) {
     error.url = node.url
     return error

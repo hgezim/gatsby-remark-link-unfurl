@@ -4,7 +4,7 @@ Transform your boring old blue-underlined links in your Gatsby blog:
 
 ![Gatsby Remakr Link Before and After](docs/preview.png)
 
-## Background
+## Motivation
 
 I've always admired how good links look in Slack. Instead of showing you a measly underlined blue link, Slack show you this:
 
