@@ -7,7 +7,7 @@ import { tranformsLinkNodeToUnfurledNode } from './transformLinkToUnfurledNode'
 import { MetadataInterface } from './interfaces'
 import { Node } from 'unist'
 
-export default async (
+module.exports = async (
   {
     markdownAST,
     markdownNode,
