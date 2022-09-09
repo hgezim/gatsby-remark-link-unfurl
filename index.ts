@@ -82,7 +82,7 @@ const processNode = async (
     }
 
     return tranformsLinkNodeToUnfurledNode(node, processedUrl[node.url])
-  } catch (error) {
+  } catch (error: any) {
     error.url = node.url
     return error
   }
