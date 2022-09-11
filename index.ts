@@ -7,7 +7,7 @@ import { tranformsLinkNodeToUnfurledNode } from './transformLinkToUnfurledNode'
 import { MetadataInterface } from './interfaces'
 import { Node } from 'unist'
 
-export default async (
+module.exports = async (
   {
     markdownAST,
     markdownNode,
@@ -82,7 +82,7 @@ const processNode = async (
     }
 
     return tranformsLinkNodeToUnfurledNode(node, processedUrl[node.url])
-  } catch (error) {
+  } catch (error: any) {
     error.url = node.url
     return error
   }
